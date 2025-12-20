@@ -1,26 +1,49 @@
 {
   "compilerOptions": {
-    "target": "ES2022",
-    "useDefineForClassFields": true,
-    "module": "ESNext",
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
-    "types": ["vite/client"],
+    // Target modern JS but safe for most environments
+    "target": "ES2020",
+
+    // Recommended for libraries
+    "module": "nodenext",
+    "moduleResolution": "NodeNext",  // Better than "bundler" for libraries publishing to npm
+
+    // Important: Emit files (JS + declarations)
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "outDir": "./dist",
+
+    // Enable isolated modules for better tree-shaking and CJS/ESM interop
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+
+    // Remove DOM types — your library shouldn't assume browser environment
+    "lib": ["ES2020"],
+
+    // Skip checking third-party types (faster, avoids issues)
     "skipLibCheck": true,
 
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
-    "moduleDetection": "force",
-    "noEmit": true,
-
-    /* Linting */
+    // Strict mode (keep most of these)
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+
+    // Recommended for libraries
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+
+    // Allow synthetic default imports (common in libraries)
+    "allowSyntheticDefaultImports": true,
+
+    // Remove or comment out these — not needed for libraries
+    // "useDefineForClassFields": true,        // Optional, safe to keep if you like it
+    // "noEmit": true,                         // MUST be removed — we need emission!
+    // "allowImportingTsExtensions": true,     // Only needed for type-only files in apps
+    // "moduleDetection": "force",             // Not needed in library builds
+    // "erasableSyntaxOnly": true,             // Not a real option
+    // "noUncheckedSideEffectImports": true    // Future option, not widely supported yet
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
 }
