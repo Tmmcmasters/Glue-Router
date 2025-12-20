@@ -22,3 +22,12 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+._dist
+._.gitignore
+._vite.config.ts
+._src
+._README.md
+._package.json
+._package-lock.json
+._node_modules
+._.git
