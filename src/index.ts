@@ -1,5 +1,14 @@
-export function greet(name: string): string {
-    return `Hello, ${name}!`;
+function initalizeGlueRouter() {
+    const     
+
+    function router() {
+        
+    }
 }
 
-export const version = '1.0.0';
+const version = '0.1.0';
+
+module.exports = {
+    initalize,
+    version
+};
