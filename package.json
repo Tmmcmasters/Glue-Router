@@ -4,7 +4,7 @@
   "description": "Client side routing library for server side driven applications.",
   "main": "./dist/glue-router.cjs.js", 
   "module": "./dist/glue-router.es.js", 
-  "types": "./dist/index.d.ts", // Types entry
+  "types": "./dist/index.d.ts", 
   "exports": {
     ".": {
       "import": "./dist/glue-router.es.js",
@@ -14,7 +14,7 @@
   },
   "files": ["dist"],
   "scripts": {
-    "dev": "vite build --watch", // Watch mode for development
+    "dev": "vite build --watch", 
     "build": "vite build",
     "preview": "vite preview"
   },
@@ -22,6 +22,6 @@
   "author": "Your Name",
   "license": "MIT",
   "publishConfig": {
-    "access": "public" // If scoped or first publish
+    "access": "public" 
   }
 }

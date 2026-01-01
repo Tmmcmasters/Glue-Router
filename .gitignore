@@ -31,3 +31,4 @@ dist-ssr
 ._package-lock.json
 ._node_modules
 ._.git
+._.prettierrc
