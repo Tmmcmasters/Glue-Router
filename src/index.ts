@@ -77,6 +77,12 @@ class GlueRouter {
         return fragment;
     }
 
+    /**
+     * A simple hash function that takes a string and returns a string that can be used to identify inline content.
+     * The hash is based on the djb2 algorithm and is designed to be fast and simple, but not cryptographically secure.
+     * @param content The string to hash.
+     * @returns A string in the format "inline:<hash>" where <hash> is a numeric hash of the content.
+     */
     private hashContent(content: string): string {
         let hash = 0;
         for (let i = 0; i < content.length; i++) {
@@ -84,6 +90,30 @@ class GlueRouter {
         }
         return `inline:${hash}`;
     }
+
+    private async fetchAndCache(url: string): Promise<CachedEntry> {
+        if (this.inFlight.has(url)) return this.inFlight.get(url)! as Promise<CachedEntry>;
+
+        const promise = fetch(url, { headers: { "X-Glue-Request": "true"}}).then((res) => {
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                return res.text();
+        })
+        .then((html) => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, "text/html");
+            return this.extractPageData(doc);
+        })
+        .then((entry) => {
+            this.cache.set(url, entry);
+            this.inFlight.delete(url);
+            return entry;
+        });
+
+        this.inFlight.set(url, promise as Promise<void>);
+        return promise;
+    }
+
+    
 }
 
 const version = "0.1.0";
