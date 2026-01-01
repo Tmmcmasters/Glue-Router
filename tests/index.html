@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home - Glue Test</title>
+</head>
+<body>
+  <div data-glue-layout="app">
+    <header>Persistent App Header (should stay on navigation)</header>
+
+    <nav>
+      <a href="/about.html" onmouseenter="glue.prefetch('/about.html')" onclick="glue.push('/about.html'); return false;">About (prefetch on hover)</a>
+      <a href="/dashboard.html" onmouseenter="glue.prefetch('/dashboard.html')" onclick="glue.push('/dashboard.html'); return false;">Dashboard</a>
+      <a href="/settings.html" onmouseenter="glue.prefetch('/settings.html')" onclick="glue.push('/settings.html'); return false;">Settings</a>
+      <a href="/index.html#anchor" onclick="glue.push('/index.html#anchor'); return false;">Same Page with Hash (should not fetch)</a>
+    </nav>
+
+    <main data-glue-page>
+      <h1>Home Content</h1>
+      <p>This is the home page. Navigate to test routing.</p>
+      <script data-glue-script>
+        console.log('Inline script on home executed!');
+      </script>
+    </main>
+  </div>
+
+  <template data-glue-head>
+    <title>Home - Glue Test</title>
+    <meta name="description" content="Home page description">
+  </template>
+
+  <script type="module">
+    import { glue } from '../dist/glue-router.es.js'; // Adjust path if needed
+    window.glue = glue; // For global access in onclick
+  </script>
+</body>
+</html>

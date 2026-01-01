@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Settings - Glue Test</title>
+</head>
+<body>
+  <div data-glue-layout="app">
+    <header>Persistent App Header (should stay on navigation)</header>
+
+    <nav>
+      <!-- Same nav -->
+      <a href="/index.html" onclick="glue.push('/index.html'); return false;">Home</a>
+      <a href="/about.html" onclick="glue.push('/about.html'); return false;">About</a>
+      <a href="/dashboard.html" onclick="glue.push('/dashboard.html'); return false;">Dashboard</a>
+    </nav>
+
+    <main data-glue-page>
+      <h1>Settings Content</h1>
+      <p>Test scripts: external should dedupe, inline should re-run.</p>
+      <script data-glue-script src="/app.js"></script> <!-- External, deduped -->
+      <script data-glue-script>
+        console.log('Inline script on settings executed!');
+        document.querySelector('h1').style.color = 'red'; // DOM-dependent
+      </script>
+    </main>
+  </div>
+
+  <template data-glue-head>
+    <title>Settings - Glue Test</title>
+    <meta name="description" content="Settings page">
+    <script src="/extra-head-script.js"></script> <!-- Test head script -->
+  </template>
+</body>
+</html>

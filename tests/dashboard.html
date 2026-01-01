@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard - Glue Test</title>
+</head>
+<body>
+  <div data-glue-layout="app">
+    <header>Persistent App Header (should stay on navigation)</header>
+
+    <nav>
+      <!-- Same nav -->
+      <a href="/index.html" onclick="glue.push('/index.html'); return false;">Home</a>
+      <a href="/about.html" onclick="glue.push('/about.html'); return false;">About</a>
+      <a href="/settings.html" onclick="glue.push('/settings.html'); return false;">Settings</a>
+    </nav>
+
+    <div data-glue-layout="dashboard">
+      <aside>Persistent Dashboard Sidebar (should stay when nested)</aside>
+
+      <main data-glue-page>
+        <h1>Dashboard Content</h1>
+        <p>Nested layout test. Sidebar should persist if navigating within dashboard routes.</p>
+      </main>
+    </div>
+  </div>
+
+  <template data-glue-head>
+    <title>Dashboard - Glue Test</title>
+    <meta name="description" content="Dashboard page">
+  </template>
+</body>
+</html>

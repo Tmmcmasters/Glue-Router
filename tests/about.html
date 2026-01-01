@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About - Glue Test</title>
+</head>
+<body>
+  <div data-glue-layout="app">
+    <header>Persistent App Header (should stay on navigation)</header>
+
+    <nav>
+      <!-- Same nav as index.html for consistency -->
+      <a href="/index.html" onclick="glue.push('/index.html'); return false;">Home</a>
+      <a href="/dashboard.html" onclick="glue.push('/dashboard.html'); return false;">Dashboard</a>
+      <a href="/settings.html" onclick="glue.push('/settings.html'); return false;">Settings</a>
+    </nav>
+
+    <main data-glue-page>
+      <h1>About Content</h1>
+      <p>This is the about page. Back/forward should use cache.</p>
+    </main>
+  </div>
+
+  <template data-glue-head>
+    <title>About - Glue Test</title>
+    <meta name="description" content="About page description">
+    <link rel="icon" href="/about-favicon.ico"> <!-- Test dynamic link -->
+  </template>
+</body>
+</html>
