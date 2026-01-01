@@ -16,7 +16,9 @@
   "scripts": {
     "dev": "vite build --watch", 
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vite --config vite.dev.config.ts",
+    "test:open": "vite --config vite.dev.config.ts --open"
   },
   "keywords": ["typescript", "utility"],
   "author": "Your Name",
