@@ -1,6 +1,6 @@
 # Glue-Router
 
-A Framework Agnostic HTML attribute driven Javascript router. Intended for SSR/SSG designed web applications. 
+A Framework Agnostic HTML attribute driven Javascript router. Intended for SSR/SSG designed web applications.
 
 ### Features
 
@@ -18,6 +18,14 @@ A Framework Agnostic HTML attribute driven Javascript router. Intended for SSR/S
   - EXAMPLE: `<main data-glue-page>`
 - data-glue-layout - *Named layout for nesting. Allows the ability to keep layout content while switching pages.*
   - EXAMPLE: `<div data-glue-layout="dashboard"`
-- data-glue-script - *Scripts belonging to this page/layout. Deduped and parsed by glue when routing.*
+- data-glue-script - *Scripts belonging to this page/layout. Deduped and parsed by glue-router when routing.*
   - EXAMPLE: `<script data-glue-script src="/app.js">`
+- data-glue-head - *Head Tag that is intended to replace the current <head> element when pages are swapped.*
+  - EXAMPLE:
+
+    ```html
+    <head data-glue-head> // This head will replace the current head
+     <title>New Page Title</title> // This title will be updated
+    </head>
+    ```
 -

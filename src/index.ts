@@ -1,5 +1,5 @@
 function initalizeGlueRouter() {
-    const     
+    
 
     function router() {
         
@@ -9,6 +9,6 @@ function initalizeGlueRouter() {
 const version = '0.1.0';
 
 module.exports = {
-    initalize,
+    initalizeGlueRouter,
     version
 };
