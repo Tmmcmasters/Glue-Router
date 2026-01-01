@@ -32,3 +32,6 @@ dist-ssr
 ._node_modules
 ._.git
 ._.prettierrc
+
+# Ignore macOS AppleDouble/resource fork files
+._*
