@@ -241,8 +241,3 @@ export default initalizeGlueRouter;
 export { initalizeGlueRouter, version, GlueRouter };
 
 export const glue = initalizeGlueRouter(); // auto-init convenience
-
-module.exports = {
-    initalizeGlueRouter,
-    version,
-};
