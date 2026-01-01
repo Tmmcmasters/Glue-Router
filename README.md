@@ -20,7 +20,7 @@ A Framework Agnostic HTML attribute driven Javascript router. Intended for SSR/S
   - EXAMPLE: `<div data-glue-layout="dashboard"`
 - data-glue-script - *Scripts belonging to this page/layout. Deduped and parsed by glue-router when routing.*
   - EXAMPLE: `<script data-glue-script src="/app.js">`
-- data-glue-head - *Head Tag that is intended to replace the current <head> element when pages are swapped.*
+- data-glue-head - *Head Tag that is intended to replace the current <head> element when pages are swapped.* It works be merging the children of the new head tag.
   - EXAMPLE:
 
     ```html
@@ -28,4 +28,9 @@ A Framework Agnostic HTML attribute driven Javascript router. Intended for SSR/S
      <title>New Page Title</title> // This title will be updated
     </head>
     ```
--
+
+#### Optional Future Tags | NOT Currently Built-in
+
+* data-glue-run-once - Executes script tags only the first time ever.
+* data-glue-run-always - Re-execute on every visit to this page/layout
+* data-glue-scroll="reset | restore | none" - Default is to reset the scroll position. Restore is to restore the scroll position on back and forward and none is to do nothing.
