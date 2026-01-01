@@ -13,7 +13,7 @@ type CachedEntry = {
 
 class GlueRouter {
     private cache = new Map<string, CachedEntry>();
-    private inFlight = new Map<string, Promise<void>>();
+    private inFlight = new Map<string, Promise<CachedEntry>>();
     private currentUrl = new URL(location.href);
     private pageSelector = "[data-glue-page]";
     private layoutSelector = "[data-glue-layout]";
@@ -116,7 +116,7 @@ class GlueRouter {
                 return entry;
             });
 
-        this.inFlight.set(url, promise as Promise<void>);
+        this.inFlight.set(url, promise);
         return promise;
     }
 
