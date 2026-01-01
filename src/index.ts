@@ -21,7 +21,7 @@ class GlueRouter {
     private headSelector = "[data-glue-head], template[data-glue-head]";
 
     constructor() {
-        window.addEventListener("popstate", () => this.handlePopState());
+        window.addEventListener("popstate", () => this.handlePopstate());
         this.cacheCurrentPage();
     }
 
