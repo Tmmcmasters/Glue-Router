@@ -1,0 +1,1 @@
+document.querySelector("main").insertAdjacentText("afterend", `Extra Head Script from ${location.pathname}`)
